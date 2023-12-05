@@ -16,21 +16,19 @@ app.use(
 app.use(express.json())
 
 // rotas da API
-const personRoutes = (require('./routes/personRoutes'))
+const vehicleRoutes = (require('./routes/vehicleRoutes'))
 
-app.use('/person', personRoutes)
+app.use('/vehicle', vehicleRoutes)
 
 // Rota inicial / endpoint
 app.get('/', (req, res) => {
     // mostrar req
-
-    res.json({ message: 'Oi express! '})
 })
 
 // entregar uma porta
 mongoose.connect('mongodb+srv://douglas:xDX2DPOU7lwXX1rL@cluster0.pqiavvu.mongodb.net/?retryWrites=true&w=majority')
 .then(() => {
-    console.log('conectado ao mongoDB!')
+    console.log('conectado ao mongoDB! http://localhost:3000')
     app.listen(3000)
 })
 .catch((err) => console.log(err))
